@@ -1,0 +1,117 @@
+# get hi
+GET http://localhost:3000/
+
+### get conn
+GET http://localhost:3000/test-conn
+
+### get all
+GET http://localhost:3000/api/students
+
+### get single
+GET http://localhost:3000/api/students/2
+
+### create single
+POST http://localhost:3000/api/students
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzI5ODMwOCwiZXhwIjoxNzA3MzAxOTA4fQ.4XmC6m9nzwOcEZS95wCT3J11DFbr2bds386qh-DFGSY
+
+{
+  "firstname": "Mike2",
+  "lastname": "Shmikes",
+  "email": "Mike3333@bit.lt"
+}
+
+### update student
+PUT http://localhost:3000/api/students/2
+Content-Type: application/json
+
+{
+  "firstname": "Okey",
+  "lastname": "Dokey",
+  "email": "ok@bit.lt"
+}
+
+### delete single student
+DELETE http://localhost:3000/api/students/6
+
+### Registration
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "jane@bit.lt",
+  "password": "123456"
+}
+
+### Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "fake@bit.lt",
+  "password": "123456"
+}
+
+### get all users
+GET http://localhost:3000/api/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzI4NzI4MywiZXhwIjoxNzA3MjkwODgzfQ.8h-baH7YqRDgUv5MuKf65ZxTPIbR8lGjtxLDJ1EOs-U
+
+### get single user
+GET http://localhost:3000/api/users/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzI4NzI4MywiZXhwIjoxNzA3MjkwODgzfQ.8h-baH7YqRDgUv5MuKf65ZxTPIbR8lGjtxLDJ1EOs-U
+
+### delete single user
+DELETE http://localhost:3000/api/users/13
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzI4NzI4MywiZXhwIjoxNzA3MjkwODgzfQ.8h-baH7YqRDgUv5MuKf65ZxTPIbR8lGjtxLDJ1EOs-U
+
+### create user
+POST http://localhost:3000/api/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzI5NDEzOCwiZXhwIjoxNzA3Mjk3NzM4fQ.qONlHlZW_b2JNnJ9mxNFDoiVkA6BUoui4vxKZsJzgF4
+
+### edit user
+PUT http://localhost:3000/api/users/4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzI4NzI4MywiZXhwIjoxNzA3MjkwODgzfQ.8h-baH7YqRDgUv5MuKf65ZxTPIbR8lGjtxLDJ1EOs-U
+{
+  "email": "new@bit.lt",
+  "scope": "manager",
+  "isActive": 0
+}
+
+### get all books
+GET http://localhost:3000/api/books
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzMwODMzMywiZXhwIjoxNzA3MzExOTMzfQ.20OyXYSS2UPOPwx_InCMmjZPVnpGDPf9_26cmWXb_1Y
+
+### get single book
+GET http://localhost:3000/api/books/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzgxNDQzOSwiZXhwIjoxNzA3ODE4MDM5fQ.LndDziCzfRh7QQMHgs1v2BgbICGfZQ5_vnA3S94Kfww
+
+### delete single book
+DELETE http://localhost:3000/api/books/9
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzgxNDQzOSwiZXhwIjoxNzA3ODE4MDM5fQ.LndDziCzfRh7QQMHgs1v2BgbICGfZQ5_vnA3S94Kfww
+
+### create book
+POST http://localhost:3000/api/books
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzMwODMzMywiZXhwIjoxNzA3MzExOTMzfQ.20OyXYSS2UPOPwx_InCMmjZPVnpGDPf9_26cmWXb_1Y
+
+{
+  "img_url": "",
+  "title": "new book",
+  "author": "new author",
+  "description": "New very nice book description",
+  "year": 2023
+}
+
+### edit book
+PUT http://localhost:3000/api/books/7
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiZmFrZUBiaXQubHQiLCJzY29wZSI6ImFkbWluIn0sImlhdCI6MTcwNzI5NDEzOCwiZXhwIjoxNzA3Mjk3NzM4fQ.qONlHlZW_b2JNnJ9mxNFDoiVkA6BUoui4vxKZsJzgF4
+
+{
+  "img_url": "/book_img/no_img.jpg",
+  "title": "okey",
+  "author": "dokey",
+  "description": "ds;ldfsgjfkbv,m jjjj jjbnn hkfssdfdg ",
+  "year": 2023
+}
