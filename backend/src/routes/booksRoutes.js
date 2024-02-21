@@ -13,6 +13,11 @@ booksRouter.get('/books/:book_id', booksController.single);
 // Post (create book)
 booksRouter.post('/books', booksController.create);
 
+booksRouter.get('/all-reserved-books-list', booksController.getReserved);
+
+//reservation
+booksRouter.post('/user-reserved-books-list', booksController.reserve);
+
 //PUT   (update books)
 booksRouter.put('/books/:book_id', booksController.update);
 

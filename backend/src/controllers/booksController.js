@@ -51,6 +51,41 @@ module.exports = {
     });
   },
 
+  getReserved: async (req, res, next) => {
+    const sql = 'SELECT books.book_id FROM books JOIN users ON books.book_id=users.user_id WHERE book_id=?';
+
+    const [items, error] = await executeQuery(sql);
+    if (error) {
+      return next(error);
+    }
+    res.json(items);
+  },
+
+  reserve: async (req, res, next) => {
+    const { book_id, user_id } = req.body;
+    console.log('boooodyyy', req.body);
+
+    const argArr = [book_id, user_id];
+    console.log(argArr);
+
+    const sql = `INSERT INTO reserved_books (book_id, user_id) VALUES (?,?)`;
+
+    const [items, error] = await executeQuery(sql, argArr);
+
+    if (error) {
+      return next(error);
+    }
+
+    if (items.affectedRows !== 1) {
+      console.log('Reservation book no rows affected', items);
+      return next(error, { msg: 'something wrong' });
+    }
+    res.json({
+      id: items.book_id,
+      msg: 'Book reserved successfully',
+    });
+  },
+
   update: async (req, res, next) => {
     const { book_id } = req.params;
     const { img_url, title, author, description, year } = req.body;

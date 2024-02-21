@@ -50,7 +50,8 @@ export default function BookList() {
       (book) =>
         book.title.toLowerCase().includes(filterValue.toLowerCase()) ||
         book.author.toLowerCase().includes(filterValue.toLowerCase()) ||
-        book.description.toLowerCase().includes(filterValue.toLowerCase())
+        book.description.toLowerCase().includes(filterValue.toLowerCase()) ||
+        book.year.toString().includes(filterValue.toString())
     );
   }, [bookList, filterValue]);
 
@@ -63,7 +64,7 @@ export default function BookList() {
       <h1 className="text-4xl mb-4 text-center">Very Nice Book List</h1>
       <div className="mt-5 mb-5">
         <label htmlFor="filter" className="block text-m font-medium leading-6 text-gray-900">
-          Search for a book ( author, title or <del>year</del>):
+          Search for a book ( author, title or year):
         </label>
         <input
           id="filter"

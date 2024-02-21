@@ -1,4 +1,6 @@
+import axios from 'axios';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import useAPIData from '../../hooks/useAPIData';
@@ -7,18 +9,34 @@ import { useAuthContext } from '../../store/AuthCtxtProvider';
 const booksUrl = 'http://localhost:3000/api/books';
 
 export default function OneBookPage() {
-  const { isUserAdmin, isUserLoggedIn } = useAuthContext();
+  const { token, isUserLoggedIn } = useAuthContext();
 
   const { book_id } = useParams();
 
   const [bookList, setBookList] = useAPIData(`${booksUrl}/${book_id}`);
-  const [reserved, setReserved] = useState('');
+  const [reserved, setReserved] = useState([]);
 
   const navigate = useNavigate();
 
   function handleReserveBook(id) {
-    navigate('/user-reserved-books-list');
-    setReserved(...reserved, id);
+    const currentUrl = `${booksUrl}/user-reserved-books-list`;
+
+    axios
+      .post(currentUrl, {
+        headers: { Authorization: token },
+      })
+      .then((ats) => {
+        // console.log('ats ===', ats);
+        console.log('list žžžžž', bookList);
+        console.log('ats.data ===', ats.data);
+        setReserved(reserved?.filter((book) => book.book_id !== id));
+
+        toast.success(`Book ${bookList.title} is reserved`);
+        // navigate('/user-reserved-books-list');
+      })
+      .catch((error) => {
+        console.warn('Reservation error:', error);
+      });
   }
 
   return (
